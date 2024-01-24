@@ -3,12 +3,12 @@ from googleapiclient.discovery import build
 from datetime import datetime
 import os
 from dotenv import load_dotenv
-from model import Video
-from database import videos_collection
+from src.model import Video
+from src.database import videos_collection
 
 # Setup Celery
 app = Celery('tasks')
-app.config_from_object('celery_config')
+app.config_from_object('src.celery_config')
 
 # Load Variables
 load_dotenv()
@@ -73,7 +73,7 @@ def fetch_and_store_videos():
 # Schedule the task to run every 30 seconds
 app.conf.beat_schedule = {
     'fetch-and-store-videos': {
-        'task': 'tasks.fetch_and_store_videos',
+        'task': 'src.tasks.fetch_and_store_videos',
         'schedule': schedules.crontab(minute='*/1'),
     },
 }
