@@ -40,6 +40,10 @@ COLLECTION_NAME=COLLECTION_NAME
 4. `celery -A src.tasks beat --loglevel=info` - *Scheduler*
 
 # API ENDPOINTS
+### Test Connection
+* Method = **GET**
+* Endpoint = **/hello**
+* Example = http://127.0.0.1:8002/hello
 ### Get paginated Vidoes
 * Method = **GET**
 * Endpoint = **/videos**
@@ -60,10 +64,10 @@ COLLECTION_NAME=COLLECTION_NAME
 * Example = http://127.0.0.1:8002/search?query=messi
 
 # Tech Stack
-1. Python 
-2. Flask
-3. MongoDB
-4. Celery
-5. Redis
-6. PyMongo
-7. Docker
+* Python 
+* Flask
+* MongoDB
+* Celery
+* Redis
+* PyMongo
+* Docker
