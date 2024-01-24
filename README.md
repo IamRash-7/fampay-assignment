@@ -71,3 +71,7 @@ COLLECTION_NAME=COLLECTION_NAME
 * Redis
 * PyMongo
 * Docker
+
+# Architecure Design
+![alt text](https://github.com/IamRash-7/fampay-assignment/blob/main/design%20diagram.jpeg "Logo Title Text 1")
+
