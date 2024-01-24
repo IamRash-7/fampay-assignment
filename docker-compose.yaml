@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8002:8002"
+    depends_on:
+      - mongo
+      - redis
+    networks:
+      - backend
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: celery -A tasks worker --loglevel=info
+    depends_on:
+      - mongo
+      - redis
+    networks:
+      - backend
+  
+  scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: celery -A tasks beat --loglevel=info
+    depends_on:
+      - mongo
+      - redis
+    networks:
+      - backend
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27018:27018"
+    networks:
+      - backend
+
+  redis:
+    image: "redis:alpine"
+    container_name: redis
+    ports:
+      - "6380:6380"
+    networks:
+      - backend
+
+networks:
+  backend:
