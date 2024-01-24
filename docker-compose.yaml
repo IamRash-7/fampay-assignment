@@ -17,7 +17,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: celery -A tasks worker --loglevel=info
+    command: celery -A src.tasks worker --loglevel=info
     depends_on:
       - mongo
       - redis
@@ -28,7 +28,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: celery -A tasks beat --loglevel=info
+    command: celery -A src.tasks beat --loglevel=info
     depends_on:
       - mongo
       - redis
