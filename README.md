@@ -34,12 +34,14 @@ COLLECTION_NAME=COLLECTION_NAME
 `docker-compose down`
 
 # RUN LOCALLY
+*NOTE: Change .env file accordingly*
 1. `python3 app.py`
 2. `redis-server --port 6379`
 3. `celery -A src.tasks worker --loglevel=info` - *Worker*
 4. `celery -A src.tasks beat --loglevel=info` - *Scheduler*
 
 # API ENDPOINTS
+*NOTE: My Youtube query = football*
 ### Test Connection
 * Method = **GET**
 * Endpoint = **/hello**
@@ -72,6 +74,6 @@ COLLECTION_NAME=COLLECTION_NAME
 * PyMongo
 * Docker
 
-# Architecure Design
-![alt text](https://github.com/IamRash-7/fampay-assignment/blob/main/design%20diagram.jpeg "Logo Title Text 1")
+# Workflow
+![alt text](https://github.com/IamRash-7/fampay-assignment/blob/main/design%20diagram2.jpeg "Logo Title Text 1")
 
